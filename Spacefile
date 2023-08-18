@@ -6,4 +6,4 @@ micros:
     path: api
     engine: python3.9
     public_routes:
-      - "/api/*"
+      - "/api/allinone/*"
