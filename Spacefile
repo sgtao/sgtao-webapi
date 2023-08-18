@@ -1,0 +1,9 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+micros:
+  - name: webapi
+    src: ./webapi/
+    path: api
+    engine: python3.9
+    public_routes:
+      - "/api/*"
