@@ -1,6 +1,6 @@
 # main.py
 from fastapi import FastAPI
-from .routers import allinone
+from webapi.routers import allinone
 
 app = FastAPI()
 

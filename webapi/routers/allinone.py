@@ -1,6 +1,4 @@
 # allinone.py
-from typing import Optional, List
-
 from fastapi import APIRouter
 from fastapi import HTTPException
 
