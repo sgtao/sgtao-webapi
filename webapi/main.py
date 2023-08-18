@@ -1,4 +1,6 @@
+# main.py
 from fastapi import FastAPI
+from .routers import allinone
 
 app = FastAPI()
 
@@ -9,3 +11,7 @@ def get_index():
 @app.get("/api/")
 def hello_api():
     return {"message": "Welcome to Deta"}
+
+# append apis
+app.include_router(allinone.router)
+
