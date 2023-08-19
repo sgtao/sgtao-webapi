@@ -76,8 +76,8 @@ async def get_num_contents():
     #             "category": "01_時制",
     #             "category_index": "[01]",
     #             "englishText": "He grinned and said, “I make lots of money.  On weekdays I receive an average of 50 orders a day from all over the globe via the Internet.” ",
-    #             "translation.slashed": "彼はにっこり笑った／そして言った／「私は稼いでいる・たくさんのお金を。平日に／私は受け取っている・平均で50の注文を／一日当たり／地球の至る所から／インターネット経由で」 ",
-    #             "translation.natural": "彼はにっこり笑って「とても儲かっていますよ。平日はインターネット経由で世界中から１日平均５０件の注文があるんです」と言った。 "
+    #             "translation_slashed": "彼はにっこり笑った／そして言った／「私は稼いでいる・たくさんのお金を。平日に／私は受け取っている・平均で50の注文を／一日当たり／地球の至る所から／インターネット経由で」 ",
+    #             "translation_natural": "彼はにっこり笑って「とても儲かっていますよ。平日はインターネット経由で世界中から１日平均５０件の注文があるんです」と言った。 "
     #         },
     #         ...
     #     ]
