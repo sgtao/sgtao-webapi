@@ -7,7 +7,9 @@ app = FastAPI()
 
 origins = [
     "http://localhost",
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "https://react-aio-typing-27586.web.app",
+    "https://react-aio-typing-27586.firebaseapp.com"
 ]
 
 app.add_middleware(
