@@ -12,13 +12,13 @@ python -m venv venv
 ### install packages
 ```sh
 source venv/bin/activate
-pip install -r webapi/requirements.txt
+pip install -r ./requirements.txt
 ```
 
 ### run app
 - run [main.py](./webapi/main.py)
 ```sh
-uvicorn webapi.main:app --reload
+uvicorn main:app --reload
 ```
 
 ## for deploy to [Deta Space](https://deta.space/)
@@ -55,11 +55,11 @@ space new
 v: 0
 micros:
   - name: webapi
-    src: ./webapi/
+    src: .
     path: api
     engine: python3.9
     public_routes:
-      - "/api/*"
+      - "/api/allinone/*"
 ```
 
 ## deploy project
@@ -71,10 +71,10 @@ space push
   * private Cloud上で、FastAPI docsでAPI挙動を確認
   * ローカルから APIのURIを確認
 ```sh
-$ curl -X 'GET' 'https://sgtaowebapi-xxx.deta.app/api/' \
+$ curl -X 'GET' 'https://sgtaowebapi-xxx.deta.app/api/allinone/' \
   -H 'accept: application/json' -s | jq
 {
-  "message": "Welcome to Deta"
+  "message":"hello from allinone."
 }
 ```
 
