@@ -1,6 +1,7 @@
 # python settings
 venv
 __pycache__
+.coverage
 
 # local settings
 assets
