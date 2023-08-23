@@ -46,7 +46,7 @@ async def get_aio_category():
     }
 
 @router.get("/category/item")
-async def country_japan(id: int = 1):
+async def get_category_item(id: int = 1):
     """_detail category item_
 
     Returns:
