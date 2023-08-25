@@ -25,7 +25,9 @@ uvicorn main:app --reload
 
 ### install space-cli
 ```sh
+sudo apt install unzip -y # to install space cli
 curl -fsSL https://get.deta.dev/space-cli.sh | sh
+exec -l $SHELL
 ```
 
 ### login Deta space

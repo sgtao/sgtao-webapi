@@ -2,6 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from webapi.routers import allinone
+from webapi.routers import gpttemplate
 
 app = FastAPI()
 
@@ -30,4 +31,5 @@ def hello_api():
 
 # append apis
 app.include_router(allinone.router)
+app.include_router(gpttemplate.router)
 
