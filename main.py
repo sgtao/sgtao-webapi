@@ -23,10 +23,20 @@ app.add_middleware(
 
 @app.get("/")
 def get_index():
+    """_for access check_
+
+    Returns:
+        dict: { "message": "Success" }
+    """
     return {"message": "Success"}
 
 @app.get("/api/")
 def hello_api():
+    """_for access check_
+
+    Returns:
+        dict: { "message": "<hello message>" }
+    """
     return {"message": "Welcome to Deta"}
 
 # append apis

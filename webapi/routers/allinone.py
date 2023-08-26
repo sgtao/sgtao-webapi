@@ -8,10 +8,10 @@ router = APIRouter(prefix="/api/allinone")
 
 @router.get("/")
 async def get_allinone():
-    """_summary_
+    """_for access check_
 
     Returns:
-        _type_: _description_
+        dict: { "message": "<hello message>" }
     """
     return {"message": "hello from allinone."}
 
@@ -20,7 +20,7 @@ async def get_aio_category():
     """_allinone category list_
 
     Returns:
-        { "number": int, "categories": List }
+        dict: { "number": int, "categories": List }
     """
     obj = aio_assets.aio_category()
     # obj is list of bellow
@@ -50,7 +50,7 @@ async def get_category_item(id: int = 1):
     """_detail category item_
 
     Returns:
-        { Object }
+        dict: { "number": int, "categories": List }
     """
     obj = aio_assets.aio_category()
     if id >= 1 and id <= len(obj['category']):

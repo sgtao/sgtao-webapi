@@ -7,11 +7,11 @@ from .functions import convert_templates as templates
 router = APIRouter(prefix="/api/gpttemplate")
 
 @router.get("/")
-async def get_allinone():
-    """_summary_
+async def hello_gpttemplate():
+    """_for access check_
 
     Returns:
-        _type_: _description_
+        dict: { "message": "<hello message>" }
     """
     return {"message": "hello from gpttemplate."}
 
@@ -23,20 +23,36 @@ class Item(BaseModel):
     data04: Optional[str] = None
     data05: Optional[str] = None
 
-    def is_not_available_type(self) -> bool:
-        if (self.type == "011_summarise"):
-            return False
-        else:
-            return True
 
-@router.post('/prompt/')
+@router.post("/prompt")
 async def create_prompt(item: Item):
+    """
+    プロンプトを生成して返答する
+
+    Arguments:
+        RequestBody (Item):
+            - "type": <プロンプト雛形の名称>,
+            - "data01"～"data05": <雛形に与える文字列>
+
+    Returns:
+        ResponseBody (dict):
+            - "message": <雛形情報>,
+            - "prompt": <プロンプト生成の結果>
+    """
     # return item
-    if (item.is_not_available_type()):
-        return { "message": f"'{item.type}' is not supported" }
-    else:
+    t = templates.Template(item.type)
+
+    if t.exist_template():
+        if t.num_args >= 1:
+            t.data01 = item.data01
+        if t.num_args >= 2:
+            t.data02 = item.data02
+
         response = {
-            "message": f"PromptType : ${item.type}",
-            "prompt": templates.convert011_summarise(item.data01)
+            "message": f"PromptType : {item.type}",
+            "prompt": t.conver_template()
         }
         return response
+
+    else:
+        return { "message": f"'{item.type}' is not supported" }
