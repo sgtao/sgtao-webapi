@@ -52,14 +52,14 @@ class Template():
 
     def conver_template(self):
         t = string.Template(self.template)
-        if self.num_args == 1:
-            return t.substitute(data01=str(self.data01))
-        if self.num_args == 2:
-            return t.substitute(
-                data01=str(self.data01),
-                data02=str(self.data02)
-            )
-
+        return t.substitute(
+            data01=str(self.data01),
+            data02=str(self.data02 if self.num_args >= 2 else None),
+            data03=str(self.data03 if self.num_args >= 3 else None)
+            # there are not template using over 4 items.
+            # data04=str(self.data04 if self.num_args >= 4 else None),
+            # data05=str(self.data05 if self.num_args >= 5 else None)
+        )
 
 
 """
@@ -108,6 +108,13 @@ async def create_prompt(item: Item):
             t.data01 = item.data01
         if t.num_args >= 2:
             t.data02 = item.data02
+        if t.num_args >= 3:
+            t.data03 = item.data03
+        # there are not template using over 4 items.
+        # if t.num_args >= 4:
+        #     t.data04 = item.data04
+        # if t.num_args >= 5:
+        #     t.data05 = item.data05
 
         response = {
             "message": f"PromptType : {item.type}",
