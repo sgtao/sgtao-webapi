@@ -1,4 +1,6 @@
 # main.py
+import yaml
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from webapi.routers import allinone
@@ -6,12 +8,19 @@ from webapi.routers import gpttemplate
 
 app = FastAPI()
 
-origins = [
-    "http://localhost",
-    "http://localhost:3000",
-    "https://react-aio-typing-27586.web.app",
-    "https://react-aio-typing-27586.firebaseapp.com"
-]
+with open("./config.yaml", "r") as config_file:
+    """
+    config.yamlからoriginsを読み込む
+    ## config.yamlのサンプル
+    origins:
+    - "http://localhost"
+    - "http://localhost:3000"
+    - "https://react-aio-typing-27586.web.app"
+    ...
+    """
+    config = yaml.full_load(config_file)
+    origins = config["origins"]
+
 
 app.add_middleware(
     CORSMiddleware,
